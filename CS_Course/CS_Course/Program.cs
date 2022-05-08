@@ -1,32 +1,28 @@
-﻿using System;
-using System.Text;
-using System.Threading.Channels;
-
-namespace FirstProject
+﻿namespace FirstProject
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Year of birth?");
-            string userInput = Console.ReadLine();
+            switch (DateTime.Now.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    Console.WriteLine("It's Monday ;(");
+                    break;
+                case DayOfWeek.Friday:
+                    Console.WriteLine("The last day of work week!");
+                    break;
+                case DayOfWeek.Sunday:
+                case DayOfWeek.Saturday:
+                    Console.WriteLine("The weekend!");
+                    break;                
+                default:
+                    Console.WriteLine("The Middle of the work week");
+                    break;
 
-            int yearOfBirth = int.Parse(userInput);
-            bool isUserOver18 = DateTime.Now.Date.Year - yearOfBirth > 18;
-            if (isUserOver18)
-            {
-                Console.WriteLine("hello");
-            }
-            else if(DateTime.Now.DayOfWeek == DayOfWeek.Monday)
-            {
-                Console.WriteLine("Oh well its Sunday");
-            }
-            else
-            {
-                Console.WriteLine("Access denied");
-            }
 
-            Console.WriteLine("bye");
+
+            }
         }
     }
 }
